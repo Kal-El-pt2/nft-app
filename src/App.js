@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [walletId, setWalletId] = useState('');
+  const [image, setImage] = useState(null);
+
+  const connectWallet = () => {
+    // Implement wallet connection logic (e.g., using web3 libraries)
+    // Set the wallet address in the state (setWalletId)
+  };
+
+  const uploadImage = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  };
+
+  const mintNFT = async () => {
+    // Implement NFT minting logic (using metaplex/js or web3 libraries)
+    // Use the walletId and image to create and mint the NFT
+    // Store the walletId in MongoDB
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={connectWallet}>Connect Wallet</button>
+      <input type="file" accept="image/*" onChange={uploadImage} />
+      <button onClick={mintNFT}>Mint NFT</button>
     </div>
   );
-}
+};
 
 export default App;
